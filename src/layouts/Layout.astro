@@ -1,4 +1,5 @@
 ---
+import "./src/styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 ---
@@ -14,7 +15,7 @@ import Header from "../components/Header.astro";
       La velado del año V - Evento de boxeo con creadores de contenido
     </title>
 
-    <!-- hola -->
+    <!-- para twitter -->
     <meta
       name="description"
       content="pagina de evento de boxeo con creadores de contenido"
@@ -31,29 +32,26 @@ import Header from "../components/Header.astro";
       content="pagina de evento de boxeo con creadores de contenido"
     />
 
-    <!-- otro -->
+    <!-- oper graf -->
     <meta name="og:creador" content="#termi" />
     <meta
-      name="og:title"
+      property="og:title"
       content=" La velado del año V - Evento de boxeo con creadores de contenido"
     />
     <meta
-      name="og:description"
+      property="og:description"
       content="pagina de evento de boxeo con creadores de contenido"
     />
+    <meta
+      property="og:image"
+      content="https://media2.giphy.com/media/v1.Y2lkPTUwMjgyMjFjcnYzc3hvMWs4ejdieHhrdzE3eW9lamxzdnNlZjd1aGMxeGNkejVuaiZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/HrfPJcCI1ykdtH6LOW/100w.gif"
+    />
+
+    <link rel="shortcut icon" href='favicon.svg"' type="image/x-icon" />
   </head>
-  <body>
+  <body class="">
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
