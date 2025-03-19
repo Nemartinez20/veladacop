@@ -1,22 +1,59 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      La velado del año V - Evento de boxeo con creadores de contenido
+    </title>
+
+    <!-- hola -->
+    <meta
+      name="description"
+      content="pagina de evento de boxeo con creadores de contenido"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="nada" />
+    <meta name="twitter:creador" content="#termi" />
+    <meta
+      name="twitter:title"
+      content=" La velado del año V - Evento de boxeo con creadores de contenido"
+    />
+    <meta
+      name="twitter:description"
+      content="pagina de evento de boxeo con creadores de contenido"
+    />
+
+    <!-- otro -->
+    <meta name="og:creador" content="#termi" />
+    <meta
+      name="og:title"
+      content=" La velado del año V - Evento de boxeo con creadores de contenido"
+    />
+    <meta
+      name="og:description"
+      content="pagina de evento de boxeo con creadores de contenido"
+    />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
