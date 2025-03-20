@@ -1,7 +1,26 @@
-<footer
-  class="bg-cover bg-[url('/images/footer.webp')] w-screen h-[400px] flex flex-col justify-center items-center text-white"
->
-  <div>
-    <p>Todos los derechos reservados</p>
+---
+import X from "../assets/svg/x.svg";
+import Instagram from "../assets/svg/instagram.svg";
+import Github from "../assets/svg/github.svg";
+---
+
+<footer class="relative w-screen h-[400px] pb-32">
+  <div
+    class="absolute inset-0 bg-cover bg-bottom bg-[url('/images/footer.webp')]
+      [mask-image:linear-gradient(transparent,black_50%)]"
+  >
+  </div>
+
+  <div
+    class="relative h-full flex flex-col justify-center items-center text-[#2a1f26]"
+  >
+    <div class="foote-content">
+      <p>Todos los derechos reservados 2025</p>
+    </div>
+    <div class="flex flex-row gap-x-2 justify-center items-centermt-4">
+      <a href="https://facebook.com" target="_blank"><X /></a>
+      <a href="https://facebook.com" target="_blank"><Instagram /></a>
+      <a href="https://facebook.com" target="_blank"><Github /></a>
+    </div>
   </div>
 </footer>
