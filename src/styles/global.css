@@ -29,3 +29,7 @@
 html{
     font-family: 'Anisette' ,sans-serif;
 }
+
+@utility mask-fade-bottom{
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
