@@ -1,3 +1,7 @@
+---
+import { FIGHTERS } from "../consts/fighters";
+---
+
 <section class="relative flex min-h-screen w-full">
   <div
     class="bg-[url('/images/hero.png')] bg-cover bg-center w-full mask-fade-bottom"
@@ -37,6 +41,28 @@
             <strong>TERMI</strong>
           </a>
         </h3>
+      </div>
+
+      <div class="relative flex flex-col items-center justify-end p-8">
+        <div class="flex flex-wrap justify-center gap-2">
+          {
+            FIGHTERS.map(({ id, name }) => (
+              <a
+                class="inline-block transition hover:scale-125 "
+                rel="noopener noreferrer"
+                target="_blank"
+                href=""
+              >
+                <img
+                  class="w-12"
+                  src={`/images/fighters/cards/${id}.png`}
+                  alt={name}
+                  decoding="async"
+                />
+              </a>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
