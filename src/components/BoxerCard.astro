@@ -3,7 +3,8 @@ const { id, name } = Astro.props;
 ---
 
 <a
-  class="inline-block transition hover:scale-125 w-10 sm:w-14 md:-16 lg:w-20"
+  class="inline-block transition hover:-translate-y-3 w-10 sm:w-14 md:-20
+  lg:w-24 xl:w-26 group relative rounded overflow-hidden"
   rel="noopener noreferrer"
   target="_blank"
   href=""
@@ -14,4 +15,11 @@ const { id, name } = Astro.props;
     alt={name}
     decoding="async"
   />
+
+  <div
+    class="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-pink-900/90 via-transparent to-transparent p-1 opacity-0
+    group-hover:opacity-100 transition-opacity duration-300"
+  >
+    <h3 class="text-teal-400 text-[11px] px-4">{name}</h3>
+  </div>
 </a>

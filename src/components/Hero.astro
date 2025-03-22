@@ -52,7 +52,46 @@ const SecondrowBox2 = FIGHTERS.slice(6);
       </div>
 
       <div
-        class="relative flex flex-col items-center justify-end p-8 h-full w-full max-w-6xl gap-2"
+        id="boxeadoresContenier"
+        class="pointer-events-none absolute inset-0 flex flex-col justify-start z-100"
+      >
+        <!-- hola -->
+
+        <div
+          class="relative top-0 mx-auto h-20 flex w-full items-center justify-center hidden"
+        >
+          {
+            FIGHTERS.map(({ id, name }) => (
+              <img
+                src={`/images/fighters/text/${id}.png`}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="w-auto h-full absolute"
+              />
+            ))
+          }
+        </div>
+
+        <div
+          class="relative bottom-0 mx-auto h-[80vh] flex w-full items-center justify-center mask-fade-bottom mb-6 hidden"
+        >
+          {
+            FIGHTERS.map(({ id, name }) => (
+              <img
+                src={`/images/fighters/big/${id}.png`}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="w-auto h-full absolute"
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="relative flex flex-col items-center justify-end p-8 mb-4 h-full w-full max-w-6xl gap-4"
       >
         <div class="flex flex-wrap justify-between w-full">
           <div class="flex flex-wrap justify-start gap-2">
