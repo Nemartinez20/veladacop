@@ -1,0 +1,17 @@
+---
+const { id, name } = Astro.props;
+---
+
+<a
+  class="inline-block transition hover:scale-125 w-10 sm:w-14 md:-16 lg:w-20"
+  rel="noopener noreferrer"
+  target="_blank"
+  href=""
+>
+  <img
+    class="aspect-[900-1200] h-full object-cover"
+    src={`/images/fighters/cards/${id}.png`}
+    alt={name}
+    decoding="async"
+  />
+</a>

@@ -1,5 +1,6 @@
 ---
 import { FIGHTERS } from "../consts/fighters";
+import BoxerCard from "./BoxerCard.astro";
 ---
 
 <section class="relative flex min-h-screen w-full">
@@ -45,23 +46,7 @@ import { FIGHTERS } from "../consts/fighters";
 
       <div class="relative flex flex-col items-center justify-end p-8">
         <div class="flex flex-wrap justify-center gap-2">
-          {
-            FIGHTERS.map(({ id, name }) => (
-              <a
-                class="inline-block transition hover:scale-125 "
-                rel="noopener noreferrer"
-                target="_blank"
-                href=""
-              >
-                <img
-                  class="w-12"
-                  src={`/images/fighters/cards/${id}.png`}
-                  alt={name}
-                  decoding="async"
-                />
-              </a>
-            ))
-          }
+          {FIGHTERS.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
         </div>
       </div>
     </div>
