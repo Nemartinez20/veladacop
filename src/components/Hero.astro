@@ -58,23 +58,24 @@ const SecondrowBox2 = FIGHTERS.slice(6);
         <!-- hola -->
 
         <div
-          class="relative top-0 mx-auto h-20 flex w-full items-center justify-center hidden"
+          class="relative top-0 mx-auto h-20 flex w-full items-center justify-center"
         >
           {
             FIGHTERS.map(({ id, name }) => (
               <img
                 src={`/images/fighters/text/${id}.png`}
-                alt=""
+                alt={`nombre deel luchador ${name}`}
                 loading="lazy"
                 decoding="async"
-                class="w-auto h-full absolute"
+                class="w-auto h-full absolute hidden"
+                data-id={`hero-text-${id}`}
               />
             ))
           }
         </div>
 
         <div
-          class="relative bottom-0 mx-auto h-[80vh] flex w-full items-center justify-center mask-fade-bottom mb-6 hidden"
+          class="relative bottom-0 mx-auto h-[80vh] flex w-full items-center justify-center mask-fade-bottom mb-6"
         >
           {
             FIGHTERS.map(({ id, name }) => (
@@ -83,7 +84,8 @@ const SecondrowBox2 = FIGHTERS.slice(6);
                 alt=""
                 loading="lazy"
                 decoding="async"
-                class="w-auto h-full absolute"
+                class="w-auto h-full absolute hidden"
+                data-id={`hero-image-${id}`}
               />
             ))
           }
@@ -113,3 +115,37 @@ const SecondrowBox2 = FIGHTERS.slice(6);
     </div>
   </div>
 </section>
+
+<script>
+  let icdurrentId: string | null = null;
+  document.addEventListener("boxer-card-hovered", (event: Event) => {
+    console.log("hla");
+    const customEvent = event as CustomEvent<{ idLuch: string }>;
+    const idLuch = customEvent.detail.idLuch;
+    console.log("boxer-card-hovered", idLuch);
+
+    //1. si ya esta el mismo boxeador en el dom no hacer nada
+    if (icdurrentId === idLuch) return;
+
+    //Mostrar title del boxedaro -- qeuitar el hidden
+    //2. si esta haciendo hover sobre otro boxeador
+    if (icdurrentId) {
+      document
+        .querySelector(`[data-id={hero-text-${icdurrentId}]`)
+        ?.classList.add("hidden");
+      document
+        .querySelector(`[data-id={hero-image-${icdurrentId}]`)
+        ?.classList.add("hidden");
+    }
+
+    //Mostrar imagen del boxedaro -- qeuitar el hidden
+
+    document
+      .querySelector(`[data-id="hero-text-${idLuch}"]`)
+      ?.classList.remove("hidden");
+
+    document
+      .querySelector(`[data-id="hero-image-${idLuch}"]`)
+      ?.classList.remove("hidden");
+  });
+</script>
