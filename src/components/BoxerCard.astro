@@ -24,38 +24,40 @@ const { id, name } = Astro.props;
 </a>
 
 <script>
-  //recuperar el elemento
-  const boxerCard = document.querySelectorAll(".boxer-Card");
+  document.addEventListener("astro:page-load", () => {
+    //recuperar el elemento
+    const boxerCard = document.querySelectorAll(".boxer-Card");
 
-  boxerCard.forEach((sigleCard) => {
-    sigleCard.addEventListener("mousemove", (e) => {
-      e.preventDefault();
-      //recuperar el data atribute
-      const idLuch = sigleCard.getAttribute("data-id_luchador");
-      console.log("disteclick...", idLuch);
-      if (idLuch) {
-        //Dispcahs acastomevent
-        const event = new CustomEvent("boxer-card-hovered", {
-          detail: { idLuch },
-        });
-        console.log("desde card");
-        document.dispatchEvent(event);
-      }
+    boxerCard.forEach((sigleCard) => {
+      sigleCard.addEventListener("mousemove", (e) => {
+        e.preventDefault();
+        //recuperar el data atribute
+        const idLuch = sigleCard.getAttribute("data-id_luchador");
+        console.log("disteclick...", idLuch);
+        if (idLuch) {
+          //Dispcahs acastomevent
+          const event = new CustomEvent("boxer-card-hovered", {
+            detail: { idLuch },
+          });
+          console.log("desde card");
+          document.dispatchEvent(event);
+        }
+      });
+
+      //Mostrar la landing
+
+      // sigleCard.addEventListener("click", () => {
+      //   //recuperar el data atribute
+      //   const idLuch = sigleCard.getAttribute("data-id_luchador");
+
+      //   if (idLuch) {
+      //     //Dispcahs acastomevent
+      //     const event = new CustomEvent("boxer-card-hovered", {
+      //       detail: { idLuch },
+      //     });
+      //     document.dispatchEvent(event);
+      //   }
+      // });
     });
-
-    //Mostrar la landing
-
-    // sigleCard.addEventListener("click", () => {
-    //   //recuperar el data atribute
-    //   const idLuch = sigleCard.getAttribute("data-id_luchador");
-
-    //   if (idLuch) {
-    //     //Dispcahs acastomevent
-    //     const event = new CustomEvent("boxer-card-hovered", {
-    //       detail: { idLuch },
-    //     });
-    //     document.dispatchEvent(event);
-    //   }
-    // });
   });
 </script>

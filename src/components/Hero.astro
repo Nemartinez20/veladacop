@@ -118,41 +118,43 @@ const SecondrowBox2 = FIGHTERS.slice(6);
 </section>
 
 <script>
-  let landing = document.getElementById("landing");
+  document.addEventListener("astro:page-load", () => {
+    let landing = document.getElementById("landing");
 
-  let icdurrentId: string | null = null;
+    let icdurrentId: string | null = null;
 
-  document.addEventListener("boxer-card-hovered", (event: Event) => {
-    console.log("hla");
-    const customEvent = event as CustomEvent<{ idLuch: string }>;
-    const idLuch = customEvent.detail.idLuch;
-    // console.log("boxer-card-hovered", idLuch);
+    document.addEventListener("boxer-card-hovered", (event: Event) => {
+      console.log("hla");
+      const customEvent = event as CustomEvent<{ idLuch: string }>;
+      const idLuch = customEvent.detail.idLuch;
+      // console.log("boxer-card-hovered", idLuch);
 
-    //1. si ya esta el mismo boxeador en el dom no hacer nada
-    if (icdurrentId === idLuch) return;
+      //1. si ya esta el mismo boxeador en el dom no hacer nada
+      if (icdurrentId === idLuch) return;
 
-    //Mostrar title del boxedaro -- qeuitar el hidden
-    //2. si esta haciendo hover sobre otro boxeador
-    if (icdurrentId) {
+      //Mostrar title del boxedaro -- qeuitar el hidden
+      //2. si esta haciendo hover sobre otro boxeador
+      if (icdurrentId) {
+        document
+          .querySelector(`[data-id="hero-text-${icdurrentId}"]`)
+          ?.classList.add("hidden");
+        document
+          .querySelector(`[data-id="hero-image-${icdurrentId}"]`)
+          ?.classList.add("hidden");
+      }
+
+      //Quitar la landing cuando aparece un luchador
+      landing?.classList.add("hidden");
+      //Mostrar imagen del boxedaro -- qeuitar el hidden
       document
-        .querySelector(`[data-id="hero-text-${icdurrentId}"]`)
-        ?.classList.add("hidden");
+        .querySelector(`[data-id="hero-text-${idLuch}"]`)
+        ?.classList.remove("hidden");
+
       document
-        .querySelector(`[data-id="hero-image-${icdurrentId}"]`)
-        ?.classList.add("hidden");
-    }
+        .querySelector(`[data-id="hero-image-${idLuch}"]`)
+        ?.classList.remove("hidden");
 
-    //Quitar la landing cuando aparece un luchador
-    landing?.classList.add("hidden");
-    //Mostrar imagen del boxedaro -- qeuitar el hidden
-    document
-      .querySelector(`[data-id="hero-text-${idLuch}"]`)
-      ?.classList.remove("hidden");
-
-    document
-      .querySelector(`[data-id="hero-image-${idLuch}"]`)
-      ?.classList.remove("hidden");
-
-    icdurrentId = idLuch;
+      icdurrentId = idLuch;
+    });
   });
 </script>
