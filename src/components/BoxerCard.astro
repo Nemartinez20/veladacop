@@ -28,8 +28,16 @@ const { id, name } = Astro.props;
     //recuperar el elemento
     const boxerCard = document.querySelectorAll(".boxer-Card");
 
+    //1 time
+    let timeoutId: number | null = null;
+
     boxerCard.forEach((sigleCard) => {
-      sigleCard.addEventListener("mousemove", (e) => {
+      sigleCard.addEventListener("mouseenter", (e) => {
+        //3. time limpiar el timeout
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+
         e.preventDefault();
         //recuperar el data atribute
         const idLuch = sigleCard.getAttribute("data-id_luchador");
@@ -58,6 +66,15 @@ const { id, name } = Astro.props;
       //     document.dispatchEvent(event);
       //   }
       // });
+
+      //cuado ya nos e hace hover
+      sigleCard.addEventListener("mouseleave", () => {
+        //2. time
+        timeoutId = setTimeout(() => {
+          const event = new CustomEvent("boxer-card-exit");
+          document.dispatchEvent(event);
+        }, 1000);
+      });
     });
   });
 </script>

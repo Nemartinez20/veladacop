@@ -122,6 +122,22 @@ const SecondrowBox2 = FIGHTERS.slice(6);
     let landing = document.getElementById("landing");
 
     let icdurrentId: string | null = null;
+    //ultimo -- para sali
+    document.addEventListener("boxer-card-exit", () => {
+      landing?.classList.remove("hidden");
+
+      //2. si esta haciendo hover sobre otro boxeador
+      if (icdurrentId) {
+        document
+          .querySelector(`[data-id="hero-text-${icdurrentId}"]`)
+          ?.classList.add("hidden");
+        document
+          .querySelector(`[data-id="hero-image-${icdurrentId}"]`)
+          ?.classList.add("hidden");
+      }
+
+      // icdurrentId = null;
+    });
 
     document.addEventListener("boxer-card-hovered", (event: Event) => {
       console.log("hla");
