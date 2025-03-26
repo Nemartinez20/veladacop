@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "./src/styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -49,6 +50,7 @@ import Header from "../components/Header.astro";
 
     <link rel="shortcut icon" href='favicon.svg"' type="image/x-icon" />
   </head>
+  <ClientRouter />
   <body class="bg-[#f3b8d7]" '>
     <div>
       <Header />
@@ -56,18 +58,19 @@ import Header from "../components/Header.astro";
       <Footer />
     </div>
   </body>
+
+
+  <style>
+    body {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      height: 100%;
+    }
+  </style>
 </html>
-
-<style>
-  body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  main {
-    height: 100%;
-  }
-</style>

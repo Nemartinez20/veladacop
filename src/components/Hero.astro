@@ -58,7 +58,7 @@ const SecondrowBox2 = FIGHTERS.slice(6);
         <!-- hola -->
 
         <div
-          class="relative top-0 mx-auto h-20 flex w-full items-center justify-center"
+          class="relative top-10 mx-auto h-15 flex w-full items-center justify-center"
         >
           {
             FIGHTERS.map(({ id, name }) => (
@@ -75,13 +75,14 @@ const SecondrowBox2 = FIGHTERS.slice(6);
         </div>
 
         <div
-          class="relative bottom-0 mx-auto h-[80vh] flex w-full items-center justify-center mask-fade-bottom mb-6"
+          class="relative bottom-0 mx-auto h-[70vh] flex w-full items-center justify-center mask-fade-bottom mb-6"
         >
           {
             FIGHTERS.map(({ id, name }) => (
               <img
+                transition:name={`image-${id}`}
                 src={`/images/fighters/big/${id}.png`}
-                alt=""
+                alt="imagen grande del luchador"
                 loading="lazy"
                 decoding="async"
                 class="w-auto h-full absolute hidden"
