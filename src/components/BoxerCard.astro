@@ -28,7 +28,7 @@ const { id, name } = Astro.props;
   const boxerCard = document.querySelectorAll(".boxer-Card");
 
   boxerCard.forEach((sigleCard) => {
-    sigleCard.addEventListener("click", (e) => {
+    sigleCard.addEventListener("mousemove", (e) => {
       e.preventDefault();
       //recuperar el data atribute
       const idLuch = sigleCard.getAttribute("data-id_luchador");
